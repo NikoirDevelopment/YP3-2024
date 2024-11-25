@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "485227d3-a14f-4ae8-99e8-55e6de3ed737",
+		"name": "ОС 2024",
+		"description": "**Шаблон ошибки  \n**`{`\n\n**`\"timestamp\": 1716767880,`**\n\n**`\"message\": \"Не найдены комментарии для документа\",`**\n\n**`\"errorCode\": \"2344\", //код должен быть больше 1000`**\n\n**`}`**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6149763",
+		"_collection_link": "https://hakta-dev.postman.co/workspace/%25D0%259E%25D0%25A1-2021~454b7788-2c11-4cc1-a2c4-77a4cc211dac/collection/6149763-485227d3-a14f-4ae8-99e8-55e6de3ed737?action=share&source=collection_link&creator=6149763"
+	},
+	"item": [
+		{
+			"name": "Signin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\": \"\",\n   \"password\":\"\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{root_url}}/api/v1/signin",
+					"host": [
+						"{{root_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{root_url}}/api/v1/Documents",
+					"host": [
+						"{{root_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Documents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Documents",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{root_url}}/api/Documents",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"Documents"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"\",\n        \"date_created\": \"2024-05-01 14:44:44\",\n        \"date_updated\": \"2024-05-01 14:44:44\",\n        \"category\": \"\",\n        \"has_comments\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"\",\n        \"date_created\": \"2024-05-01 14:44:44\",\n        \"date_updated\": \"2024-05-01 14:44:44\",\n        \"category\": \"\",\n        \"has_comments\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"\",\n        \"date_created\": \"2024-05-01 14:44:44\",\n        \"date_updated\": \"2024-05-01 14:44:44\",\n        \"category\": \"\",\n        \"has_comments\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Comments by document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{root_url}}/api/v1/Document/123/Comments",
+					"host": [
+						"{{root_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Document",
+						"123",
+						"Comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"id\": 1,\n   \"document_id\": 1,\n   \"text\": \"Hello world\",\n   \"date_created\": \"2024-05-01 14:44:44\",\n   \"date_updated\": \"2024-05-01 14:44:44\",\n   \"author\": {\n       \"name\": \"Петров Петр\",\n       \"position\": \"Администратор\"\n   }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{root_url}}/api/v1/Document/123/Comment",
+					"host": [
+						"{{root_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Document",
+						"123",
+						"Comment"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "jwt",
+		"jwt": [
+			{
+				"key": "algorithm",
+				"value": "HS256",
+				"type": "string"
+			},
+			{
+				"key": "isSecretBase64Encoded",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "payload",
+				"value": "{}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "queryParamKey",
+				"value": "token",
+				"type": "string"
+			},
+			{
+				"key": "header",
+				"value": "{}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "root_url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
