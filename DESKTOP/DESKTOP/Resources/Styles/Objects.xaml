@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DESKTOP.Resources.Styles.Objects">
+
+    <!-- MainPage_Начало -->
+
+    <Style x:Key="MainPage_BorderMin" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_BorderMax" TargetType="Border">
+        <Setter Property="HeightRequest" Value="450"></Setter>
+        <Setter Property="WidthRequest" Value="400"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalWhite}"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_TitlePages" TargetType="Label">
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_BoxView" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="2"></Setter>
+        <Setter Property="BackgroundColor" Value="DarkGray"></Setter>
+        <Setter Property="Margin" Value="10"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_TitleEntry" TargetType="Label">
+        <Setter Property="Margin" Value="5"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="Small"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_ContentEntry" TargetType="Entry">
+        <Setter Property="HeightRequest" Value="20"></Setter>
+        <Setter Property="WidthRequest" Value="200"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="MaxLength" Value="20"></Setter>
+    </Style>
+
+    <Style x:Key="MainPage_Button" TargetType="Button">
+        <Setter Property="HeightRequest" Value="52"></Setter>
+        <Setter Property="WidthRequest" Value="200"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="Text" Value="OK"></Setter>
+        <Setter Property="FontSize" Value="Micro"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- MainPage_Конец -->
+
+</ResourceDictionary>

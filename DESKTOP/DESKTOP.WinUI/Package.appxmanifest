@@ -8,7 +8,7 @@
 
   <Identity Name="com.companyname.desktop" Publisher="CN=User Name" Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="A59526A0-9C91-4958-9985-5F8D8511C02A" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="710F9DAA-1C69-4DE4-909C-B19672E8AD3D" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>DESKTOP</DisplayName>

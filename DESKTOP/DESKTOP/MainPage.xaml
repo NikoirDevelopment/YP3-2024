@@ -1,36 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DESKTOP.MainPage">
+             x:Class="DESKTOP.MainPage"
+             Style="{StaticResource MainPage_BorderMin}">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+    <Grid>
+        <Border
+            Style="{StaticResource MainPage_BorderMax}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10"></RoundRectangle>
+            </Border.StrokeShape>
 
-            <Label
-                Text="Hello, World!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+            <StackLayout>
+                <Label
+                    Style="{StaticResource MainPage_TitlePages}"
+                    Text="Авторизация">
+                </Label>
 
-            <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                <BoxView
+                    Style="{StaticResource MainPage_BoxView}">
+                </BoxView>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Orientation="Vertical"
+                    HeightRequest="300">
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Orientation="Horizontal">
+                        <Label
+                            Margin="0, 5, 10, 12"
+                            Style="{StaticResource MainPage_TitleEntry}"
+                            Text="Логин:">
+                        </Label>
+
+                        <Entry
+                            x:Name="EntLog"
+                            Style="{StaticResource MainPage_ContentEntry}">
+                        </Entry>
+                    </StackLayout>
+
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Orientation="Horizontal">
+                        <Label
+                            Margin="0, 5, 10, 12"
+                            Style="{StaticResource MainPage_TitleEntry}"
+                            Text="Пароль:">
+                        </Label>
+
+                        <Entry
+                            x:Name="EntPass"
+                            Margin="0, 5, 10, 12"
+                            Style="{StaticResource MainPage_ContentEntry}"
+                            IsPassword="True">
+                        </Entry>
+                    </StackLayout>
+                </StackLayout>
+
+                <BoxView
+                    Style="{StaticResource MainPage_BoxView}">
+                </BoxView>
+
+                <StackLayout
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal">
+                    <Button
+                        x:Name="BtnOK"
+                        Style="{StaticResource MainPage_Button}"
+                        Clicked="BtnOK_Clicked">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+        </Border>
+    </Grid>
 
 </ContentPage>
