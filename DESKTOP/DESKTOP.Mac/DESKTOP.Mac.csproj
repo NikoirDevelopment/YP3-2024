@@ -8,7 +8,23 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseMaui>true</UseMaui>
+		<Copyright>NikoirDevelopment</Copyright>
+		<ApplicationIcon>Icons.ico</ApplicationIcon>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="Icons.ico" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />

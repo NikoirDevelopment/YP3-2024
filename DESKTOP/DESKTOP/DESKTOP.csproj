@@ -7,12 +7,22 @@
 		<RootNamespace>DESKTOP</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<Nullable>enable</Nullable>
+		<Copyright>NikoirDevelopment</Copyright>
+		<PackageIcon>Logo.png</PackageIcon>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -22,21 +32,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Resources\Pages\MainWindow.xaml">
+	  <MauiXaml Update="Program\MainWindowApp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Objects.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\Data\" />
 	</ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace DESKTOP
+﻿using DESKTOP.Program;
+
+namespace DESKTOP
 {
     public partial class AppShell : Shell
     {

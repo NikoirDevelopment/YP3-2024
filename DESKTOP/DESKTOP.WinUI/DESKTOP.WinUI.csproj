@@ -18,11 +18,28 @@
 		<EnableDefaultMauiItems>false</EnableDefaultMauiItems>
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
+		<Copyright>NikoirDevelopment</Copyright>
+		<ApplicationIcon>Icons.ico</ApplicationIcon>
+		<Description>Система управления данными</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Include="Icons.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -54,6 +71,30 @@
 	-->
 	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
 		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 </Project>

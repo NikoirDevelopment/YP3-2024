@@ -69,4 +69,68 @@
 
     <!-- MainPage_Конец -->
 
+    <!-- MainWindow_Начало -->
+
+    <Style x:Key="MainWindow_ListBorder" TargetType="Border">
+        <Setter Property="HeightRequest" Value="550"></Setter>
+        <Setter Property="WidthRequest" Value="550"></Setter>
+        <Setter Property="BackgroundColor" Value="LightGray"></Setter>
+        <Setter Property="Stroke" Value="Black"></Setter>
+        <Setter Property="StrokeThickness" Value="1"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_View" TargetType="Button">
+        <Setter Property="HeightRequest" Value="40"></Setter>
+        <Setter Property="WidthRequest" Value="160"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MainWindow_CollectionView-Organization" TargetType="Label">
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_CollectionView-SNM" TargetType="Label">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_CollectionView-PandE" TargetType="Label">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_CollectionView-Post" TargetType="Label">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="Margin" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_CollectionView-ButtonDetailed" TargetType="Button">
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="WidthRequest" Value="120"></Setter>
+        <Setter Property="HorizontalOptions" Value="Start"></Setter>
+        <Setter Property="Background" Value="Gray"></Setter>
+        <Setter Property="Text" Value="Подробнее"></Setter>
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95" />
+                <Setter Property="Background" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- MainWindow_Конец -->
+
 </ResourceDictionary>
