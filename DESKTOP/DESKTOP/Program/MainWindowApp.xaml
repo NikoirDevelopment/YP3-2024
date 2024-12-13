@@ -9,14 +9,46 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="620"></RowDefinition>
             </Grid.RowDefinitions>
 
+            <!-- Шапка_Начало -->
             <Border
                 Grid.Row="0"
                 Background="{StaticResource GlobalMainGreen}">
-            </Border>
+                <StackLayout
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal"
+                    Margin="15, 0, 0, 0">
+                    <StackLayout>
+                        <Image
+                            x:Name="ImgLogo"
+                            HeightRequest="40"
+                            WidthRequest="40">
+                        </Image>
+                    </StackLayout>
 
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Margin="5, 0, 0, 0">
+                        <Entry
+                            x:Name="EntSearch"
+                            Style="{StaticResource MainWindow_EntrySearch}">
+                            <ToolTipProperties.Text>Осуществляется поиск "Фамилии, Имени, Отчетсва, Номера телефона и электронной почты"</ToolTipProperties.Text>
+                        </Entry>
+
+                        <Button
+                            x:Name="BtnSearch"
+                            Style="{StaticResource MainWindow_ButtonSearch}"
+                            Clicked="BtnSearch_Clicked">
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+            <!-- Шапка_Конец -->
+
+            <!-- Блок иерархии компании_Начало -->
             <Border
                 Grid.Row="1"
                 Background="{StaticResource GlobalWhite}">
@@ -25,7 +57,7 @@
                     VerticalOptions="Center"
                     Orientation="Horizontal">
                     <Border
-                        Style="{StaticResource MainWindow_ListBorder}"
+                        Style="{StaticResource MainWindow_DepBorder}"
                         Margin="0,0,10,0">
                         <StackLayout
                             Orientation="Vertical">
@@ -44,157 +76,308 @@
                                 </Label>
                             </Border>
 
+                            <!-- Блок навигации_Начало -->
                             <StackLayout
                                 HorizontalOptions="Center"
                                 VerticalOptions="Start"
                                 Orientation="Vertical"
                                 Margin="0, 10, 0, 0">
-                                <StackLayout
-                                    HorizontalOptions="Center">
+                                <StackLayout>
                                     <Button
-                                        x:Name="Btn1"
+                                        x:Name="BtnRoadsRussia"
                                         Style="{StaticResource MainWindow_View}"
                                         Text="Дороги России"
-                                        Clicked="Btn1_Clicked">
+                                        Clicked="BtnRoadsRussia_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BtnAdministrativeDepartment"
+                                        WidthRequest="240"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Административные департамент"
+                                        Clicked="BtnAdministrativeDepartment_Clicked">
                                     </Button>
 
-                                    <StackLayout
-                                        HorizontalOptions="Center"
-                                        Orientation="Horizontal">
-                                        <Line
-                                            Margin="0, -25, 0, 0"
-                                            X1="0"
-                                            Y1="50"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-
-                                        <Line
-                                            X1="0"
-                                            Y1="0"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                        HorizontalOptions="Center"
-                                        Orientation="Horizontal"
-                                        Margin="0, -27, 0, 0">
-                                        <Button
-                                            x:Name="Btn2"
-                                            WidthRequest="240"
-                                            Margin="0, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Административные департамент"
-                                            Clicked="Btn2_Clicked">
-                                        </Button>
-
-                                        <Button
-                                            x:Name="Btn3"
-                                            WidthRequest="190"
-                                            Margin="45, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Академия Умные дороги"
-                                            Clicked="Btn3_Clicked">
-                                        </Button>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                        HorizontalOptions="Center"
-                                        Margin="0, 0, 180, 0"
-                                        Orientation="Horizontal">
-                                        <Line
-                                            Margin="0, -25, 0, 0"
-                                            X1="0"
-                                            Y1="50"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-
-                                        <Line
-                                            X1="0"
-                                            Y1="0"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                        HorizontalOptions="Start"
-                                        Orientation="Horizontal"
-                                        Margin="-35, -27, 0, 0">
-                                        <Button
-                                            x:Name="Btn4"
-                                            Margin="0, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Договорной отдел"
-                                            Clicked="Btn4_Clicked">
-                                        </Button>
-
-                                        <Button
-                                            x:Name="Btn5"
-                                            WidthRequest="190"
-                                            Margin="45, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Общий отдел"
-                                            Clicked="Btn5_Clicked">
-                                        </Button>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                        HorizontalOptions="Center"
-                                        Margin="60, 0, 0, 0"
-                                        Orientation="Horizontal">
-                                        <Line
-                                            Margin="0, -25, 0, 0"
-                                            X1="0"
-                                            Y1="50"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-
-                                        <Line
-                                            X1="0"
-                                            Y1="0"
-                                            X2="80"
-                                            Y2="25"
-                                            Stroke="Black">
-                                        </Line>
-                                    </StackLayout>
-
-                                    <StackLayout
-                                        HorizontalOptions="Start"
-                                        Orientation="Horizontal"
-                                        Margin="70, -27, 0, 0">
-                                        <Button
-                                            x:Name="Btn6"
-                                            WidthRequest="170"
-                                            Margin="0, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Лецензионный отдел"
-                                            Clicked="Btn6_Clicked">
-                                        </Button>
-
-                                        <Button
-                                            x:Name="Btn7"
-                                            WidthRequest="190"
-                                            Margin="45, 0, 0, 0"
-                                            Style="{StaticResource MainWindow_View}"
-                                            Text="Управление маркетинга"
-                                            Clicked="Btn7_Clicked">
-                                        </Button>
-                                    </StackLayout>
+                                    <Button
+                                        x:Name="BtnFinancialAndEconomicDepartment"
+                                        WidthRequest="240"
+                                        Margin="5, 0, 0, 0"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Финансово-экономический департамент"
+                                        Clicked="BtnFinancialAndEconomicDepartment_Clicked">
+                                    </Button>
                                 </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    Orientation="Vertical">
+                                    <Button
+                                        x:Name="BtnAcademySmartRoads"
+                                        WidthRequest="190"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Академия Умные дороги"
+                                        Clicked="BtnAcademySmartRoads_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, 5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="15"
+                                        X2="0"
+                                        Y2="0"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BtnManagementApparatus"
+                                        WidthRequest="160"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Аппарат управления"
+                                        Clicked="BtnManagementApparatus_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BtnDepartmentMarketingAndPartnerships"
+                                        WidthRequest="320"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент маркетинга и партнерских отношений"
+                                        Clicked="BtnDepartmentMarketingAndPartnerships_Clicked">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="BtnDepartmentCorporateEvents"
+                                        WidthRequest="320"
+                                        Margin="5, 0, 0, 0"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент по организации корпоративов"
+                                        Clicked="BtnDepartmentCorporateEvents_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+                                    <Button
+                                        x:Name="BtnDepartmentCommunications"
+                                        WidthRequest="210"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент коммуникаций"
+                                        Clicked="BtnDepartmentCommunications_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BtnHR_Department"
+                                        WidthRequest="320"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент по работе с персоналом"
+                                        Clicked="BtnHR_Department_Clicked">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="BtnDepartmentStrategyAndPlanning"
+                                        WidthRequest="320"
+                                        Margin="5, 0, 0, 0"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент стратегии и планирования"
+                                        Clicked="BtnDepartmentStrategyAndPlanning_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, -5, 0, 5">
+                                    <Line
+                                        X1="0"
+                                        Y1="10"
+                                        X2="30"
+                                        Y2="20"
+                                        Stroke="Black">
+                                    </Line>
+
+                                    <Line
+                                        X1="0"
+                                        Y1="20"
+                                        X2="30"
+                                        Y2="10"
+                                        Stroke="Black">
+                                    </Line>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+                                    <Button
+                                        x:Name="BtnDepartmentWorkWithIndustry"
+                                        WidthRequest="300"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Департамент по работе с промышленностью"
+                                        Clicked="BtnDepartmentWorkWithIndustry_Clicked">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    Margin="0, 15, 0, 0">
+                                    <Button
+                                        x:Name="BtnLegalDepartment"
+                                        WidthRequest="220"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Юридический департамент"
+                                        Clicked="BtnLegalDepartment_Clicked">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="BtnFinancialPlanningAndControlDepartment"
+                                        WidthRequest="360"
+                                        Margin="5, 0, 0, 0"
+                                        Style="{StaticResource MainWindow_View}"
+                                        Text="Управление Финансового планирования и контроля"
+                                        Clicked="BtnFinancialPlanningAndControlDepartment_Clicked">
+                                    </Button>
+                                </StackLayout>
+                                <!-- Блок навигации_Конец -->
+
                             </StackLayout>
                         </StackLayout>
                     </Border>
+                    <!-- Блок иерархии компании_Конец -->
 
+                    <!-- Блок вывода информации_Начало -->
                     <Border
                         Style="{StaticResource MainWindow_ListBorder}">
                         <StackLayout
@@ -243,13 +426,14 @@
                                 FontAttributes="Bold">
                             </Label>
 
+                            <!-- Блок списка_Начало -->
                             <Border
                                 x:Name="BorderCollectionView"
                                 IsVisible="Collapse"
                                 Background="DimGray">
                                 <CollectionView
                                     x:Name="collectionView"
-                                    HeightRequest="413"
+                                    HeightRequest="445"
                                     WidthRequest="546"
                                     VerticalScrollBarVisibility="Default"
                                     SelectionMode="Single">
@@ -347,11 +531,12 @@
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>
                             </Border>
+                            <!-- Блок списка_Конец -->
 
-
+                            <!-- Блок управление списком_Начало -->
                             <StackLayout
                                 Orientation="Horizontal"
-                                Margin="5, 5, 5, 0">
+                                Margin="5, 15, 5, 0">
                                 <Button
                                     x:Name="BtnBack"
                                     IsVisible="Collapse"
@@ -374,8 +559,12 @@
                                     Clicked="BtnCreate_Clicked">
                                 </Button>
                             </StackLayout>
+                            <!-- Блок управление списком_Конец -->
+
                         </StackLayout>
                     </Border>
+                    <!-- Блок списка_Конец -->
+
                 </StackLayout>
             </Border>
         </Grid>

@@ -58,6 +58,7 @@
         <Setter Property="FontSize" Value="Micro"></Setter>
         <Setter Property="TextColor" Value="Black"></Setter>
         <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="IsVisible" Value="Collapse"></Setter>
 
         <Style.Triggers>
             <Trigger TargetType="Button" Property="IsPressed" Value="True">
@@ -71,8 +72,37 @@
 
     <!-- MainWindow_Начало -->
 
+    <Style x:Key="MainWindow_EntrySearch" TargetType="Entry">
+        <Setter Property="WidthRequest" Value="1100"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+    </Style>
+
+    <Style x:Key="MainWindow_ButtonSearch" TargetType="Button">
+        <Setter Property="WidthRequest" Value="100"></Setter>
+        <Setter Property="Margin" Value="2, 0, 0, 0"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
+        <Setter Property="Text" Value="Поиск"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MainWindow_DepBorder" TargetType="Border">
+        <Setter Property="HeightRequest" Value="600"></Setter>
+        <Setter Property="WidthRequest" Value="700"></Setter>
+        <Setter Property="BackgroundColor" Value="LightGray"></Setter>
+        <Setter Property="Stroke" Value="Black"></Setter>
+        <Setter Property="StrokeThickness" Value="1"></Setter>
+    </Style>
+
     <Style x:Key="MainWindow_ListBorder" TargetType="Border">
-        <Setter Property="HeightRequest" Value="550"></Setter>
+        <Setter Property="HeightRequest" Value="600"></Setter>
         <Setter Property="WidthRequest" Value="550"></Setter>
         <Setter Property="BackgroundColor" Value="LightGray"></Setter>
         <Setter Property="Stroke" Value="Black"></Setter>
@@ -83,6 +113,7 @@
         <Setter Property="HeightRequest" Value="40"></Setter>
         <Setter Property="WidthRequest" Value="160"></Setter>
         <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="TextColor" Value="Black"></Setter>
 
         <Style.Triggers>
@@ -123,6 +154,7 @@
         <Setter Property="HorizontalOptions" Value="Start"></Setter>
         <Setter Property="Background" Value="Gray"></Setter>
         <Setter Property="Text" Value="Подробнее"></Setter>
+
         <Style.Triggers>
             <Trigger TargetType="Button" Property="IsPressed" Value="True">
                 <Setter Property="Scale" Value="0.95" />

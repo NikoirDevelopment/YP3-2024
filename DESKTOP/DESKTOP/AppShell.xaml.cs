@@ -7,6 +7,8 @@ namespace DESKTOP
         public AppShell()
         {
             InitializeComponent();
+
+            this.IconImageSource = ImageSource.FromResource("DESKTOP.Resources.Images.Logo.png");
         }
     }
 }

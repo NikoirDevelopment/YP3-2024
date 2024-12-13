@@ -21,11 +21,14 @@
                     Style="{StaticResource MainPage_BoxView}">
                 </BoxView>
 
+                <!-- Поля ввода_Начало -->
                 <StackLayout
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Orientation="Vertical"
                     HeightRequest="300">
+
+                    <!-- Поле ввода логина_Начало -->
                     <StackLayout
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
@@ -41,7 +44,9 @@
                             Style="{StaticResource MainPage_ContentEntry}">
                         </Entry>
                     </StackLayout>
+                    <!-- Поле ввода логина_Конец -->
 
+                    <!-- Поле ввода пароля_Начало -->
                     <StackLayout
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
@@ -59,12 +64,16 @@
                             IsPassword="True">
                         </Entry>
                     </StackLayout>
+                    <!-- Поле ввода пароля_Конец -->
+
                 </StackLayout>
+                <!-- Поля ввода_Конец -->
 
                 <BoxView
                     Style="{StaticResource MainPage_BoxView}">
                 </BoxView>
 
+                <!-- Кнопка "ОК"_Начало-->
                 <StackLayout
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
@@ -74,7 +83,18 @@
                         Style="{StaticResource MainPage_Button}"
                         Clicked="BtnOK_Clicked">
                     </Button>
+
+                    <ActivityIndicator
+                        x:Name="ActIndProgress"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        Margin="0, 5, 0, 0"
+                        IsVisible="Collapse"
+                        IsRunning="True">
+                    </ActivityIndicator>
                 </StackLayout>
+                <!-- Кнопка "ОК"_Конец-->
+
             </StackLayout>
         </Border>
     </Grid>

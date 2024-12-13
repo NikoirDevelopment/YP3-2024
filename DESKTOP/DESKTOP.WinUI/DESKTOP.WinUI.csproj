@@ -73,27 +73,27 @@
 		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-	  <ApplicationTitle>С.У.Д.</ApplicationTitle>
+	  <ApplicationTitle> </ApplicationTitle>
 	  <ApplicationDisplayVersion>0.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 

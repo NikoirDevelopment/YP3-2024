@@ -4,11 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DESKTOP"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    IconImageSource="Logo.png">
 
     <ShellContent
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage">
+        Route="MainPage"
+        Icon="Logo.png">
     </ShellContent>
 
 </Shell>
