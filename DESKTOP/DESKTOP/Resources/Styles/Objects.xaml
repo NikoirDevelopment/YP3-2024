@@ -152,17 +152,102 @@
         <Setter Property="HeightRequest" Value="30"></Setter>
         <Setter Property="WidthRequest" Value="120"></Setter>
         <Setter Property="HorizontalOptions" Value="Start"></Setter>
-        <Setter Property="Background" Value="Gray"></Setter>
+        <Setter Property="BackgroundColor" Value="Gray"></Setter>
         <Setter Property="Text" Value="Подробнее"></Setter>
 
         <Style.Triggers>
             <Trigger TargetType="Button" Property="IsPressed" Value="True">
                 <Setter Property="Scale" Value="0.95" />
-                <Setter Property="Background" Value="{StaticResource BtnEvent}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!-- MainWindow_Конец -->
+
+    <!-- DetailedUser_Начало -->
+
+    <Style x:Key="DetailedUser_MainBorder-Thickness" TargetType="Border">
+        <Setter Property="HeightRequest" Value="650"></Setter>
+        <Setter Property="WidthRequest" Value="750"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="BackgroundColor" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_MainBorder" TargetType="Border">
+        <Setter Property="HeightRequest" Value="650"></Setter>
+        <Setter Property="WidthRequest" Value="750"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="BackgroundColor" Value="DarkGray"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_Entry" TargetType="Entry">
+        <Setter Property="WidthRequest" Value="250"></Setter>
+        <Setter Property="Margin" Value="0, 5, 0, 0"></Setter>
+        <Setter Property="BackgroundColor" Value="White"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="PlaceholderColor" Value="Gray"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_Label" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="Margin" Value="0, 3, 0, 2"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_DatePicker" TargetType="DatePicker">
+        <Setter Property="WidthRequest" Value="120"></Setter>
+        <Setter Property="Margin" Value="0, 5, 0, 0"></Setter>
+        <Setter Property="BackgroundColor" Value="White"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_Picker" TargetType="Picker">
+        <Setter Property="WidthRequest" Value="250"></Setter>
+        <Setter Property="BackgroundColor" Value="White"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalTextAlignment" Value="Center"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_Button1" TargetType="Button">
+        <Setter Property="WidthRequest" Value="100"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="90, 75, 5, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_Button2" TargetType="Button">
+        <Setter Property="WidthRequest" Value="100"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 75, 0, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalRed}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- DetailedUser_Конец -->
 
 </ResourceDictionary>

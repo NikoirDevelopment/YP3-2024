@@ -2,9 +2,8 @@ using DESKTOP.Resources.Data;
 using DESKTOP;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Maui.Controls;
-using DESKTOP.Resources.Data.BufferData;
-using static DESKTOP.Resources.Data.BufferData.BufferData;
 using DESKTOP.Program.userList.win;
+using System.Diagnostics.Tracing;
 
 namespace DESKTOP.Program;
 
@@ -578,22 +577,28 @@ public partial class MainWindowApp : ContentPage
         LoadCollectionView();
     }
 
+    /// <summary>
+    /// Открытия модального окна подробностей
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private async void BtnDetailed_Clicked(object sender, EventArgs e)
     {
-        //
-        var selectedItem = collectionView.SelectedItem as User;
+        var button = sender as Button;
+        var user = button?.BindingContext as User;
 
-        if (selectedItem != null)
+        if (user != null)
         {
-            Application.Current?.OpenWindow(new DetailedUser(selectedItem));
+            OdbControlHelper.Buffer.UserID = user.UserId;
 
+            var detailedUser = new DetailedUser();
+            await Navigation.PushModalAsync(detailedUser);
         }
         else
         {
-            await DisplayAlert("ОШИБКА", "Ошибка загрузка данных! Обратитесь к администратору", "Закрыть");
+            await DisplayAlert("Ошибка", "Ошибка загрузки данных. Обратитесь к адмнистатору!", "Отмена");
         }
     }
-
 
     private void BtnCreate_Clicked(object sender, EventArgs e)
     {

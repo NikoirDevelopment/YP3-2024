@@ -1,11 +1,290 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Window xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DESKTOP.Program.userList.win.DetailedUser"
-             Title="Подробная информация сотрудника">
+             Title="DetailedUser"
+             HeightRequest="650"
+             WidthRequest="750"
+             Background="Transparent">
 
-    <ContentPage>
+    <StackLayout>
+        <!-- Загрузка модального окна_Начало -->
+        <StackLayout
+            x:Name="LoadingWindow"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0, 53, 0, 0"
+            Orientation="Vertical"
+            IsVisible="Collapse">
+            <ActivityIndicator
+                IsRunning="True">
+            </ActivityIndicator>
 
-    </ContentPage>
+            <Label
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0, 2, 0, 0"
+                Text="Загрузка данных..">
+            </Label>
 
-</Window>
+            <Button
+                x:Name="BtnCancelLoading"
+                Style="{StaticResource DetailedUser_ButtonCancelLoading}"
+                IsVisible="Collapse"
+                Clicked="BtnCancel_Clicked">
+            </Button>
+        </StackLayout>
+        <!-- Загрузка модального окна_Конец -->
+
+        <!-- Основное модальное окно_Начало -->
+        <Grid
+            x:Name="DetailedUserWindow"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsVisible="Collapse">
+            <Border
+                Style="{StaticResource DetailedUser_MainBorder-Thickness}">
+                <Border
+                    Style="{StaticResource DetailedUser_MainBorder}">
+                    <!-- Основной модуль информации_Начало -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="620"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="20"></ColumnDefinition>
+                            <ColumnDefinition Width="398"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Карточка сотрудника_Начало -->
+                        <Border
+                            x:Name="BrdUser"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Background="LightGray">
+
+                            <StackLayout
+                                Orientation="Vertical">
+
+                                <!-- Данных сотрудника_Начало -->
+                                <StackLayout
+                                    x:Name="StcDataUser"
+                                    Orientation="Vertical">
+                                    <Entry
+                                        x:Name="EntSurname"
+                                        Style="{StaticResource DetailedUser_Entry}"
+                                        Placeholder="Фамилия">
+                                    </Entry>
+
+                                    <Entry
+                                        x:Name="EntName"
+                                        Style="{StaticResource DetailedUser_Entry}"
+                                        Placeholder="Имя">
+                                    </Entry>
+
+                                    <Entry
+                                        x:Name="EntMiddlename"
+                                        Style="{StaticResource DetailedUser_Entry}"
+                                        Placeholder="Отчество">
+                                    </Entry>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Дата рождения:">
+                                        </Label>
+
+                                        <DatePicker
+                                            x:Name="DtpDate"
+                                            Style="{StaticResource DetailedUser_DatePicker}">
+                                        </DatePicker>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Организация:">
+                                        </Label>
+
+                                        <Picker
+                                            x:Name="PicOrganization"
+                                            Style="{StaticResource DetailedUser_Picker}">
+                                        </Picker>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Отдел:">
+                                        </Label>
+
+                                        <Picker
+                                            x:Name="PicDivision"
+                                            Style="{StaticResource DetailedUser_Picker}">
+                                        </Picker>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Подотдел:">
+                                        </Label>
+
+                                        <Picker
+                                            x:Name="PicMiniDivision"
+                                            Style="{StaticResource DetailedUser_Picker}">
+                                        </Picker>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Должность:">
+                                        </Label>
+
+                                        <Picker
+                                            x:Name="PicPost"
+                                            Style="{StaticResource DetailedUser_Picker}">
+                                        </Picker>
+                                    </StackLayout>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Vertical">
+                                        <Label
+                                            Style="{StaticResource DetailedUser_Label}"
+                                            FontSize="12"
+                                            Text="Кабинет:">
+                                        </Label>
+
+                                        <Picker
+                                            x:Name="PicCabinet"
+                                            Style="{StaticResource DetailedUser_Picker}">
+                                        </Picker>
+                                    </StackLayout>
+
+                                    <Entry
+                                        x:Name="EntEmail"
+                                        Style="{StaticResource DetailedUser_Entry}"
+                                        Placeholder="Электронная почта">
+                                    </Entry>
+
+                                    <Entry
+                                        x:Name="EntPhone"
+                                        Style="{StaticResource DetailedUser_Entry}"
+                                        Placeholder="Номер телефона">
+                                    </Entry>
+
+                                    <StackLayout
+                                        x:Name="StcOffUser"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Orientation="Horizontal"
+                                        IsVisible="Hidden">
+
+                                        <StackLayout
+                                            Orientation="Vertical">
+                                            <Label
+                                                Style="{StaticResource DetailedUser_Label}"
+                                                FontSize="12"
+                                                Text="Статус:">
+                                            </Label>
+
+                                            <Picker
+                                                x:Name="PicStatus"
+                                                Style="{StaticResource DetailedUser_Picker}"
+                                                Margin="0, 0, 0, 0"
+                                                WidthRequest="120">
+                                            </Picker>
+                                        </StackLayout>
+
+                                        <StackLayout
+                                            Margin="10, 0, 0, 0"
+                                            Orientation="Vertical">
+                                            <Label
+                                                Style="{StaticResource DetailedUser_Label}"
+                                                FontSize="12"
+                                                Text="Дата:">
+                                            </Label>
+
+                                            <DatePicker
+                                                x:Name="DtpDateOff"
+                                                Style="{StaticResource DetailedUser_DatePicker}"
+                                                Margin="0, 0, 0, 0"
+                                                WidthRequest="120">
+                                            </DatePicker>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- Данных сотрудника_Конец -->
+
+                                <StackLayout
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BtnClose"
+                                        Style="{StaticResource DetailedUser_Button2}"
+                                        Text="Закрыть"
+                                        Clicked="BtnClose_Clicked">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="BtnEdit"
+                                        Style="{StaticResource DetailedUser_Button1}"
+                                        Text="Изменить"
+                                        Clicked="BtnEdit_Clicked">
+                                    </Button>
+                                </StackLayout>
+                            </StackLayout>
+                        </Border>
+                        <!-- Карточка сотрудника_Конец -->
+
+                        <!-- События сотрудника_Начало -->
+                        <Border
+                            x:Name="BrdEvent"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Background="LightGray">
+                            <StackLayout>
+
+                            </StackLayout>
+                        </Border>
+                        <!-- События сотрудника_Конец -->
+
+                    </Grid>
+                    <!-- Основной модуль информации_Конец -->
+
+                </Border>
+            </Border>
+        </Grid>
+        <!-- Основное модальное окно_Конец -->
+
+    </StackLayout>
+
+</ContentPage>
