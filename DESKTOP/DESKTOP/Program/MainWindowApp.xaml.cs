@@ -119,23 +119,18 @@ public partial class MainWindowApp : ContentPage
     /// </summary>
     private void LoadData()
     {
+        // Загрузка логотипа компании на главный экран
         Image image = new Image
         {
             Source = ImageSource.FromResource("DESKTOP.Resources.Images.res.Logo.png")
         };
-        ImgLogo.Source = image.Source;
 
-        Full = OdbControlHelper.context.Users
-                    .Include(x => x.Organization)
-                    .Include(x => x.Division)
-                    .Include(x => x.Post)
-                    .Include(x => x.StatusUser)
-                    .Include(x => x.Cabinet)
-                    .ToList();
+        ImgLogo.Source = image.Source;
 
         RoadsRussia = OdbControlHelper.context.Users
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -145,6 +140,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 2)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -154,6 +150,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 1)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -163,6 +160,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 11)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -172,6 +170,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 3)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -181,6 +180,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 5)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -190,6 +190,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 6)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -199,6 +200,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 4)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -208,6 +210,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 7)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -217,6 +220,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 9)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -226,6 +230,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 8)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -235,6 +240,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 12)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -244,6 +250,7 @@ public partial class MainWindowApp : ContentPage
                     .Where(x => x.OrganizationId == 10)
                     .Include(x => x.Organization)
                     .Include(x => x.Division)
+                    .Include(x => x.MinDivision)
                     .Include(x => x.Post)
                     .Include(x => x.StatusUser)
                     .Include(x => x.Cabinet)
@@ -417,23 +424,7 @@ public partial class MainWindowApp : ContentPage
                 }
                 else
                 {
-                    LblDep.Text = "Поиск";
-
-                    collectionView.ItemsSource = null;
-
-                    collectionView.ItemsSource = Full
-                            .Where(w => w.Surname.Contains(search)
-                                || w.Name.Contains(search)
-                                || w.Middlename.Contains(search)
-                                || w.Phone.Contains(search)
-                                || w.Email.Contains(search))
-                            .ToList();
-
-                    BorderCollectionView.IsVisible = true;
-                    LblInfo.IsVisible = false;
-
-                    BtnBack.IsVisible = true;
-                    BtnCreate.IsVisible = true;
+                    await DisplayAlert("Системное уведомление | Поисковая система", "Не выбрана категория", "OK");
                 }
 
             }
@@ -459,7 +450,7 @@ public partial class MainWindowApp : ContentPage
         }
         else
         {
-            EntSearch.Placeholder = "Поиск";
+            EntSearch.Placeholder = "Поисковик (Выберите категорию)";
 
             LblDep.Text = "Отдел: NaN";
 
@@ -589,7 +580,7 @@ public partial class MainWindowApp : ContentPage
 
         if (user != null)
         {
-            OdbControlHelper.Buffer.UserID = user.UserId;
+            OdbControlHelper.Buffer.UserID = (int)user.UserId;
 
             var detailedUser = new DetailedUser();
             await Navigation.PushModalAsync(detailedUser);

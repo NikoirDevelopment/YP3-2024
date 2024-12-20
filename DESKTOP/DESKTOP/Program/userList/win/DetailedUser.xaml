@@ -122,7 +122,8 @@
 
                                         <Picker
                                             x:Name="PicOrganization"
-                                            Style="{StaticResource DetailedUser_Picker}">
+                                            Style="{StaticResource DetailedUser_Picker}"
+                                            SelectedIndexChanged="PicOrganization_SelectedIndexChanged">
                                         </Picker>
                                     </StackLayout>
 
@@ -202,6 +203,14 @@
                                         Placeholder="Номер телефона">
                                     </Entry>
 
+                                    <Button
+                                        x:Name="BtnRemove"
+                                        Style="{StaticResource DetailedUser_ButtonRemoveEmployee}"
+                                        IsVisible="False"
+                                        Text="Уволить"
+                                        Clicked="BtnRemove_Clicked">
+                                    </Button>
+
                                     <StackLayout
                                         x:Name="StcOffUser"
                                         HorizontalOptions="Center"
@@ -217,12 +226,14 @@
                                                 Text="Статус:">
                                             </Label>
 
-                                            <Picker
+                                            <Entry
                                                 x:Name="PicStatus"
-                                                Style="{StaticResource DetailedUser_Picker}"
+                                                IsEnabled="False"
+                                                Style="{StaticResource DetailedUser_Entry}"
                                                 Margin="0, 0, 0, 0"
                                                 WidthRequest="120">
-                                            </Picker>
+                                            </Entry>
+
                                         </StackLayout>
 
                                         <StackLayout
@@ -240,6 +251,7 @@
                                                 Margin="0, 0, 0, 0"
                                                 WidthRequest="120">
                                             </DatePicker>
+
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
@@ -252,6 +264,14 @@
                                         Style="{StaticResource DetailedUser_Button2}"
                                         Text="Закрыть"
                                         Clicked="BtnClose_Clicked">
+                                    </Button>
+
+                                    <Button
+                                        x:Name="BtnNotEdit"
+                                        Style="{StaticResource DetailedUser_Button3}"
+                                        Text="Отмена"
+                                        IsVisible="False"
+                                        Clicked="BtnNotEdit_Clicked">
                                     </Button>
 
                                     <Button
@@ -271,7 +291,273 @@
                             Grid.Row="1"
                             Grid.Column="3"
                             Background="LightGray">
-                            <StackLayout>
+                            <StackLayout Orientation="Vertical">
+
+                                <!-- Календарь-Навигация_Начало -->
+                                <StackLayout
+                                    HorizontalOptions="Center"
+                                    Orientation="Vertical">
+                                    <Button
+                                        x:Name="BtnFull"
+                                        WidthRequest="330"
+                                        Margin="0, 15, 0, -10"
+                                        Style="{StaticResource DetailedUser_CalendarButton}"
+                                        Text="Весь календарь"
+                                        Clicked="BtnFull_Clicked">
+                                    </Button>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal">
+                                        <Button
+                                            x:Name="BtnPast"
+                                            Style="{StaticResource DetailedUser_CalendarButton}"
+                                            Text="Прошедшие"
+                                            Clicked="BtnPast_Clicked">
+                                        </Button>
+
+                                        <Button
+                                            x:Name="BtnPresent"
+                                            Style="{StaticResource DetailedUser_CalendarButton}"
+                                            Text="Текущие"
+                                            Clicked="BtnPresent_Clicked">
+                                        </Button>
+
+                                        <Button
+                                            x:Name="BtnFuture"
+                                            Style="{StaticResource DetailedUser_CalendarButton}"
+                                            Text="Будущие"
+                                            Clicked="BtnFuture_Clicked">
+                                        </Button>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- Календарь-Навигация_Конец -->
+
+                                <Border
+                                    Style="{StaticResource DetailedUser_CalendarBorder}">
+                                    <StackLayout
+                                        Orientation="Vertical">
+                                        <Border
+                                            Style="{StaticResource DetailedUser_CalendarTitleBorder}">
+                                            <Label
+                                                x:Name="LblTitleCalendar"
+                                                Style="{StaticResource DetailedUser_CalendarTitleBorder-Label}"
+                                                Text="Календарь: NaN">
+                                            </Label>
+                                        </Border>
+
+                                        <!-- Календарь-Список_Начало -->
+                                        <StackLayout>
+                                            <CollectionView
+                                                x:Name="ColVCalendar"
+                                                Background="DimGray"
+                                                HeightRequest="267">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackLayout
+                                                            WidthRequest="266"
+                                                            Orientation="Vertical">
+                                                            <StackLayout
+                                                                HeightRequest="125"
+                                                                WidthRequest="316"
+                                                                Margin="-6, 2, 2, 2"
+                                                                Orientation="Vertical"
+                                                                Background="{StaticResource GlobalMainGreen}">
+                                                                <StackLayout
+                                                                    HorizontalOptions="Center"
+                                                                    VerticalOptions="Center"
+                                                                    Orientation="Vertical">
+                                                                    <Label
+                                                                        Style="{StaticResource DetailedUser_CalendarLabel-TypeCalendar}"
+                                                                        Text="{Binding TypeCalendar.Title}">
+                                                                    </Label>
+
+                                                                    <StackLayout
+                                                                        HorizontalOptions="Center"
+                                                                        Orientation="Horizontal">
+                                                                        <Label
+                                                                            Style="{StaticResource DetailedUser_CalendarLabel-DateStartEnd}"
+                                                                            Text="{Binding DateTimeStart}">
+                                                                        </Label>
+
+                                                                        <Label
+                                                                            Style="{StaticResource DetailedUser_CalendarLabel-DateStartEnd}"
+                                                                            Margin="0, 5, 3, 5"
+                                                                            Text=" — ">
+                                                                        </Label>
+
+                                                                        <Label
+                                                                            Style="{StaticResource DetailedUser_CalendarLabel-DateStartEnd}"
+                                                                            Text="{Binding DateTimeEnd}">
+                                                                        </Label>
+                                                                    </StackLayout>
+
+                                                                    <Border
+                                                                        BackgroundColor="Black">
+                                                                        <Label
+                                                                            Style="{StaticResource DetailedUser_CalendarLabel-Description}"
+                                                                            Text="{Binding Description}">
+                                                                        </Label>
+                                                                    </Border>
+
+                                                                    <StackLayout
+                                                                        HorizontalOptions="Center"
+                                                                        VerticalOptions="Center"
+                                                                        Orientation="Horizontal">
+                                                                        <Label
+                                                                            Style="{StaticResource DetailedUser_CalendarLabel-StatusCalendar}"
+                                                                            Text="{Binding StatusCalendar.Title}">
+
+                                                                        </Label>
+
+                                                                        <Button
+                                                                            x:Name="BtnEditEventCalendar"
+                                                                            Style="{StaticResource DetailedUser_CalendarButton-Edit}"
+                                                                            Clicked="BtnEditEventCalendar_Clicked">
+                                                                        </Button>
+                                                                    </StackLayout>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+                                        </StackLayout>
+                                        <!-- Календарь-Список_Конец -->
+
+                                    </StackLayout>
+                                </Border>
+
+                                <!-- Изменение/Добавление событий_Начало -->
+                                <StackLayout
+                                    Orientation="Vertical">
+                                    <Border
+                                        x:Name="StcEventCalendar"
+                                        IsVisible="Hidden"
+                                        Background="DimGray"
+                                        HeightRequest="200"
+                                        WidthRequest="330">
+                                        <StackLayout
+                                            Orientation="Vertical">
+                                            <Border
+                                                Style="{StaticResource DetailedUser_CalendarTitleBorder}">
+                                                <Label
+                                                    x:Name="LblEditCalendar"
+                                                    Style="{StaticResource DetailedUser_CalendarTitleBorder-Label}"
+                                                    Text="Создание записи">
+                                                </Label>
+                                            </Border>
+
+                                            <StackLayout
+                                                Margin="-1,5,-1,0"
+                                                Orientation="Vertical">
+                                                <StackLayout
+                                                    Orientation="Horizontal">
+                                                    <Label
+                                                        Style="{StaticResource DetailedUser_CalendarTitleObject}"
+                                                        Margin="5,0,5,0"
+                                                        Text="Тип события:">
+                                                    </Label>
+
+                                                    <Picker
+                                                        x:Name="PickTypeCalendar"
+                                                        WidthRequest="236">
+                                                    </Picker>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Orientation="Horizontal">
+                                                    <Label
+                                                        Style="{StaticResource DetailedUser_CalendarTitleObject}"
+                                                        Margin="13,0,5,0"
+                                                        Text="Тип статуса:">
+                                                    </Label>
+
+                                                    <Picker
+                                                        x:Name="PickStatusCalendar"
+                                                        Margin="0,2,5,0"
+                                                        WidthRequest="236">
+                                                    </Picker>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Margin="0,3,0,1">
+                                                    <Entry
+                                                        x:Name="EntDescriptionCalendar"
+                                                        HeightRequest="40"
+                                                        Placeholder="Описание события"
+                                                        HorizontalTextAlignment="Center"
+                                                        MaxLength="145">
+                                                    </Entry>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    Orientation="Horizontal">
+                                                    <StackLayout
+                                                        Orientation="Vertical">
+                                                        <Label
+                                                            Style="{StaticResource DetailedUser_CalendarTitleObject}"
+                                                            Text="Начальная дата:">
+                                                        </Label>
+
+                                                        <DatePicker
+                                                            x:Name="DtPCalendarStart">
+                                                        </DatePicker>
+                                                    </StackLayout>
+
+                                                    <Button
+                                                        x:Name="BtnSaveCalendar"
+                                                        Style="{StaticResource DetailedUser_CalendarButtonSave}"
+                                                        Text="Сохранить"
+                                                        Clicked="BtnSaveCalendar_Clicked">
+                                                    </Button>
+
+                                                    <StackLayout
+                                                        Orientation="Vertical">
+                                                        <Label
+                                                            Style="{StaticResource DetailedUser_CalendarTitleObject}"
+                                                            Text="Конечная дата:">
+                                                        </Label>
+
+                                                        <DatePicker
+                                                            x:Name="DtPCalendarEnd">
+                                                        </DatePicker>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Border>
+
+                                    <StackLayout
+                                        HorizontalOptions="Center"
+                                        Orientation="Horizontal">
+                                        <Button
+                                            x:Name="BtnCreateCalendar"
+                                            Style="{StaticResource DetailedUser_ButtonCreateCalendar}"
+                                            Text="Создать событие"
+                                            Clicked="BtnCreateCalendar_Clicked">
+                                        </Button>
+
+                                        <Button
+                                            x:Name="BtnDeleteCalendar"
+                                            Style="{StaticResource DetailedUser_ButtonDeleteCalendar}"
+                                            IsVisible="Hidden"
+                                            Text="Удалить"
+                                            Clicked="BtnDeleteCalendar_Clicked">
+                                        </Button>
+
+                                        <Button
+                                            x:Name="BtnReloadCalendar"
+                                            Style="{StaticResource DetailedUser_ButtonReloadCalendar}"
+                                            Text="Обновить"
+                                            Clicked="BtnReloadCalendar_Clicked">
+                                        </Button>
+                                    </StackLayout>
+                                </StackLayout>
+                                <!-- Изменение/Добавление событий_Конец -->
+
 
                             </StackLayout>
                         </Border>

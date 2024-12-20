@@ -33,8 +33,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Data\Config\OdbConnection.json" />
 	  <None Remove="Resources\Images\Icons.ico" />
 	  <None Remove="Resources\Images\res\Logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\Data\Config\OdbConnection.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>

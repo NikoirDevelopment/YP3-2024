@@ -223,7 +223,67 @@
     <Style x:Key="DetailedUser_Button1" TargetType="Button">
         <Setter Property="WidthRequest" Value="100"></Setter>
         <Setter Property="HeightRequest" Value="30"></Setter>
-        <Setter Property="Margin" Value="90, 75, 5, 5"></Setter>
+        <Setter Property="Margin" Value="5, 75, 5, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_Button2" TargetType="Button">
+        <Setter Property="WidthRequest" Value="78"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 75, 0, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalRed}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_Button3" TargetType="Button">
+        <Setter Property="WidthRequest" Value="100"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 75, 0, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalYellow}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_ButtonRemoveEmployee" TargetType="Button">
+        <Setter Property="WidthRequest" Value="77"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 5, 0, 0"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalRed}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarButton" TargetType="Button">
+        <Setter Property="WidthRequest" Value="110"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="0, 15, 0, 5"></Setter>
         <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
         <Setter Property="TextColor" Value="Black"></Setter>
 
@@ -234,11 +294,91 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="DetailedUser_Button2" TargetType="Button">
-        <Setter Property="WidthRequest" Value="100"></Setter>
+    <Style x:Key="DetailedUser_CalendarBorder" TargetType="Border">
+        <Setter Property="HeightRequest" Value="292"></Setter>
+        <Setter Property="WidthRequest" Value="330"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="BackgroundColor" Value="DarkGray"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarTitleBorder" TargetType="Border">
         <Setter Property="HeightRequest" Value="30"></Setter>
-        <Setter Property="Margin" Value="5, 75, 0, 5"></Setter>
-        <Setter Property="BackgroundColor" Value="{StaticResource GlobalRed}"></Setter>
+        <Setter Property="WidthRequest" Value="330"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="BackgroundColor" Value="Gray"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarTitleBorder-Label" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarLabel-TypeCalendar" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="Margin" Value="0, 5, 0, 0"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarLabel-DateStartEnd" TargetType="Label">
+        <Setter Property="Margin" Value="0, 5, 0, 5"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarLabel-Description" TargetType="Label">
+        <Setter Property="HeightRequest" Value="40"></Setter>
+        <Setter Property="WidthRequest" Value="311"></Setter>
+        <Setter Property="BackgroundColor" Value="Gray"></Setter>
+        <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarLabel-StatusCalendar" TargetType="Label">
+        <Setter Property="Margin" Value="0, 10, 132, 5"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="10"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarButton-Edit" TargetType="Button">
+        <Setter Property="WidthRequest" Value="110"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="0, 3, 0, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="Gray"></Setter>
+        <Setter Property="Text" Value="Изменить"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarTitleObject" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DetailedUser_CalendarButtonSave" TargetType="Button">
+        <Setter Property="WidthRequest" Value="110"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="2, 15, 2, 0"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
         <Setter Property="TextColor" Value="Black"></Setter>
 
         <Style.Triggers>
@@ -248,6 +388,49 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="DetailedUser_ButtonReloadCalendar" TargetType="Button">
+        <Setter Property="WidthRequest" Value="100"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 6, 5, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalMainGreen}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_ButtonCreateCalendar" TargetType="Button">
+        <Setter Property="WidthRequest" Value="140"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="Margin" Value="5, 6, 5, 5"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalYellow}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DetailedUser_ButtonDeleteCalendar" TargetType="Button">
+        <Setter Property="WidthRequest" Value="90"></Setter>
+        <Setter Property="HeightRequest" Value="30"></Setter>
+        <Setter Property="BackgroundColor" Value="{StaticResource GlobalRed}"></Setter>
+        <Setter Property="TextColor" Value="Black"></Setter>
+
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                <Setter Property="Scale" Value="0.95"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource BtnEvent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <!-- DetailedUser_Конец -->
 
 </ResourceDictionary>

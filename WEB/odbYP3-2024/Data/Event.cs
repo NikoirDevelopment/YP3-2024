@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DESKTOP;
+namespace odbYP3_2024.Data;
 
 public partial class Event
 {

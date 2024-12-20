@@ -1,6 +1,6 @@
-﻿using DESKTOP.Program;
+﻿using DESKTOP;
+using DESKTOP.Program;
 using DESKTOP.Resources.Data;
-using DESKTOP;
 
 namespace DESKTOP
 {

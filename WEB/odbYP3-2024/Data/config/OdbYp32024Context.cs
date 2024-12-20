@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
-namespace DESKTOP;
+namespace odbYP3_2024.Data;
 
 public partial class OdbYp32024Context : DbContext
 {

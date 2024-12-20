@@ -35,7 +35,7 @@
                         <Entry
                             x:Name="EntSearch"
                             Style="{StaticResource MainWindow_EntrySearch}">
-                            <ToolTipProperties.Text>Осуществляется поиск "Фамилии, Имени, Отчетсва, Номера телефона и электронной почты"</ToolTipProperties.Text>
+                            <ToolTipProperties.Text>Осуществляется поиск "Фамилии, Имени, Отчетсва, Номера телефона и электронной почты. Для поиска, выберите раздел"</ToolTipProperties.Text>
                         </Entry>
 
                         <Button
@@ -119,7 +119,7 @@
                                     Orientation="Horizontal">
                                     <Button
                                         x:Name="BtnAdministrativeDepartment"
-                                        WidthRequest="240"
+                                        WidthRequest="280"
                                         Style="{StaticResource MainWindow_View}"
                                         Text="Административные департамент"
                                         Clicked="BtnAdministrativeDepartment_Clicked">
@@ -127,7 +127,7 @@
 
                                     <Button
                                         x:Name="BtnFinancialAndEconomicDepartment"
-                                        WidthRequest="240"
+                                        WidthRequest="280"
                                         Margin="5, 0, 0, 0"
                                         Style="{StaticResource MainWindow_View}"
                                         Text="Финансово-экономический департамент"

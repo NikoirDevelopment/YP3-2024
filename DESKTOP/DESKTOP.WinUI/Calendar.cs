@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DESKTOP;
+namespace DESKTOP.WinUI;
 
 public partial class Calendar
 {

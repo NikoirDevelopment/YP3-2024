@@ -1,0 +1,6 @@
+@odbYP3_2024_HostAddress = http://localhost:5220
+
+GET {{odbYP3_2024_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

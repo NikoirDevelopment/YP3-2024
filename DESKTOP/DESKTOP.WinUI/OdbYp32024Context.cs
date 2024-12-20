@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
-namespace DESKTOP;
+namespace DESKTOP.WinUI;
 
 public partial class OdbYp32024Context : DbContext
 {
@@ -39,19 +38,8 @@ public partial class OdbYp32024Context : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("OdbConnection.json", optional: false, reloadOnChange: true);
-
-            IConfiguration configuration = builder.Build();
-            string connectionString = configuration.GetConnectionString("DefaultConnection");
-
-            optionsBuilder.UseNpgsql(connectionString);
-        }
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Server=localhost;Database=OdbYP3-2024;Username=postgres;Password=root;Port=5432");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -108,7 +96,6 @@ public partial class OdbYp32024Context : DbContext
 
             entity.HasOne(d => d.Organization).WithMany(p => p.Divisions)
                 .HasForeignKey(d => d.OrganizationId)
-                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("Divisions_OrganizationID_fkey");
         });
 
@@ -119,11 +106,17 @@ public partial class OdbYp32024Context : DbContext
             entity.ToTable("Event");
 
             entity.Property(e => e.EventId).HasColumnName("EventID");
+            entity.Property(e => e.TypeCalendarId).HasColumnName("TypeCalendarID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.TypeCalendar).WithMany(p => p.Events)
+                .HasForeignKey(d => d.TypeCalendarId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("Event_TypeCalendarID_fkey");
 
             entity.HasOne(d => d.User).WithMany(p => p.Events)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("Event_UserID_fkey");
         });
 
