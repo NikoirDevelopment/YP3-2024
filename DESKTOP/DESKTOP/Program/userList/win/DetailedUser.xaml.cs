@@ -63,12 +63,13 @@ public partial class DetailedUser : ContentPage
         {
             if ((_seconds >= 4) && (OdbControlHelper.Buffer.UserID != null))
             {
+                _timer.Stop();
+
                 LoadingWindow.IsVisible = false;
                 DetailedUserWindow.IsVisible = true;
 
                 LoadData();
 
-                _timer.Stop();
 
                 await DisplayAlert("Подсказка", "Для того, чтобы изменить данные сотрудник, нажмите кнопку изменить. " +
                         "Как только вы нажали изменить, вам не достпуна кнопка закрыть. После изменений, нажмите на кнопку сохранить. " +
@@ -137,6 +138,12 @@ public partial class DetailedUser : ContentPage
 
             PicStatus.Text = "Уволен";
             DtpDateOff.Date = _user.DateFinish.Value.ToDateTime(TimeOnly.MinValue); //Удаляет время и устанавливает ДД.ММ.ГГГГ;
+
+            BtnClose.IsVisible = true;
+            BtnClose.Margin = new Thickness(105, -30, 0, 5);
+
+            BtnCreateCalendar.IsVisible = false;
+            BtnReloadCalendar.IsVisible = false;
         }
 
         LoadCalendar();
@@ -583,6 +590,8 @@ public partial class DetailedUser : ContentPage
 
                 await DisplayAlert("Процесс удаление сотрудника",
                 "Сотрудник уволен! Данные о сотрудники удалятся в течение 30 дней", "Ок");
+
+                await Navigation.PopModalAsync();
             }
         }
     }

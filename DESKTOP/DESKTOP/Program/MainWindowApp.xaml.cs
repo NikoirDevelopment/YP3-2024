@@ -2,8 +2,8 @@ using DESKTOP.Resources.Data;
 using DESKTOP;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Maui.Controls;
-using DESKTOP.Program.userList.win;
 using System.Diagnostics.Tracing;
+using DESKTOP.Program.userList.win;
 
 namespace DESKTOP.Program;
 
@@ -13,7 +13,6 @@ public partial class MainWindowApp : ContentPage
     public int modeCollectionView = 0;
 
     //Буфер данных
-    private List<User> Full;
     private List<User> RoadsRussia;
     private List<User> AcademySmartRoads;
     private List<User> AdministrativeDepartment;
@@ -446,6 +445,7 @@ public partial class MainWindowApp : ContentPage
             LblInfo.IsVisible = false;
 
             BtnBack.IsVisible = true;
+            BtnReload.IsVisible = true;
             BtnCreate.IsVisible = true;
         }
         else
@@ -458,6 +458,7 @@ public partial class MainWindowApp : ContentPage
             LblInfo.IsVisible = true;
 
             BtnBack.IsVisible = false;
+            BtnReload.IsVisible = false;
             BtnCreate.IsVisible = false;
 
             GC.Collect();
@@ -591,8 +592,21 @@ public partial class MainWindowApp : ContentPage
         }
     }
 
-    private void BtnCreate_Clicked(object sender, EventArgs e)
+    private void BtnReload_Clicked(object sender, EventArgs e)
     {
+        LoadData();
+        LoadCollectionView();
+    }
 
+    private async void BtnCreate_Clicked(object sender, EventArgs e)
+    {
+        if (modeCollectionView == 1)
+        {
+            await DisplayAlert("Ошибка", "Нельзя создать пользователя из структуры Дороги России. Обратитесь к адмнистатору!", "Ок");
+            return;
+        }
+
+        var addUser = new AddUser();
+        await Navigation.PushModalAsync(addUser);
     }
 }

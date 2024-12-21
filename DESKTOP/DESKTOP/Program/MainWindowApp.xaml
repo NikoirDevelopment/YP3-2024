@@ -548,6 +548,17 @@
                                 </Button>
 
                                 <Button
+                                    x:Name="BtnReload"
+                                    IsVisible="Collapse"
+                                    HorizontalOptions="Start"
+                                    Margin="25,0,0,0"
+                                    Style="{StaticResource MainWindow_View}"
+                                    Text="Обновить"
+                                    FontAttributes="Bold"
+                                    Clicked="BtnReload_Clicked">
+                                </Button>
+
+                                <Button
                                     x:Name="BtnCreate"
                                     IsVisible="Collapse"
                                     WidthRequest="50"

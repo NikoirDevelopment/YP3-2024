@@ -70,10 +70,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Program\userList\win\AddUser.xaml.cs">
+	    <DependentUpon>AddUser.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Program\MainWindowApp.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Program\userList\win\DetailedUser.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Program\userList\win\AddUser.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Objects.xaml">
