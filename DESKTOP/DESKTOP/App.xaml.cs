@@ -25,8 +25,10 @@ namespace DESKTOP
             var window = new Window(new AppShell())
             {
                 Title = "С.У.Д.  ",
+
                 Height = 720,
                 MinimumHeight = 720,
+
                 Width = 1300,
                 MinimumWidth = 1300
             };
